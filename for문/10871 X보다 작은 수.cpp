@@ -3,16 +3,16 @@
 int main(void)
 {
 	int n, x;
-	int value;
 	
 	scanf("%d %d", &n, &x);
 	
+	int arr[n];
+	
 	for (int i = 0; i < n; i++)
 	{
-		scanf("%d", value);
-		
-		if (value < x)
-			printf("%d ", value);
+		scanf("%d", &arr[i]);
+		if (arr[i] < x)
+			printf("%d ", arr[i]);
 	}
 	
 	return 0;
