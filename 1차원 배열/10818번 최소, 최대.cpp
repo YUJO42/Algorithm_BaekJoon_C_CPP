@@ -1,24 +1,23 @@
 #include  <stdio.h>
 
-int main()
+int main(void)
 {
-	int n, i;
-	int max = -1000001;
-	int min = 1000001;
-	int rN;
-
+	int n;
+	int max = -1000000;
+	int min = 1000000;
+	int arr;
+	
 	scanf("%d", &n);
-
-	for (i = 0; i < n; i++)
+	
+	for (int i = 0; i < n; i++)
 	{
-		scanf("%d", &rN);
-
-		if (max < rN)
-			max = rN;
-		if (min > rN)
-			min = rN;
+		scanf("%d", &arr);
+		if (max < arr)
+			max = arr;
+		if (min > arr)
+			min = arr;		
 	}
 	printf("%d %d", min, max);
-
+	
 	return 0;
 }
