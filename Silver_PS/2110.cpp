@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+o/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   2110_x.c                                           :+:      :+:    :+:   */
@@ -6,44 +6,15 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:16:49 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/05 19:18:42 by yujo             ###   ########.fr       */
+/*   Updated: 2020/03/06 11:04:53 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include <algorithm>
+#include <iostream>
 
-void	swap(int *a, int *b)
-{
-	int temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-void	quick_sort(int *list, int left, int right)
-{
-	if (left >= right)
-		return ;        
-	int pivot = left;
-	int start = left + 1;
-	int end = right;
-	while (start <= end) 
-	{
-		while (list[pivot] >= list[start] && start <= right)
-			start++;
-		while (list[pivot] <= list[end] && end > left)
-			end--;
-		if (start > end)
-			swap(&list[pivot], &list[end]);
-		else
-			swap(&list[start], &list[end]);
-	}
-	quick_sort(list, left, end - 1);
-	quick_sort(list, end + 1, right);
-}
+using namespace std;
 
 int		main(void)
 {
@@ -58,7 +29,7 @@ int		main(void)
 		scanf("%d", &locate[i]);
 		max = max < locate[i] ? locate[i] : max;
 	}
-	quick_sort(locate, 0, home - 1);
+	sort(locate, loacate + home);
 	
 	int left = 1;
 	int right = max;
@@ -89,4 +60,3 @@ int		main(void)
 	}
 	printf("%d", max_len);
 }
-
