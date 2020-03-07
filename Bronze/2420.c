@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1065.c                                             :+:      :+:    :+:   */
+/*   2420.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 20:12:23 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/07 22:10:08 by yujo             ###   ########.fr       */
+/*   Created: 2020/03/07 22:50:53 by yujo              #+#    #+#             */
+/*   Updated: 2020/03/08 00:23:58 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	hansoo(int n)
-{
-	int count = 0;
-	int a, b, c;
-
-	if (n < 100)
-		return (n);
-	else
-		count = 99;
-	for (int i = 100; i <= n; i++)
-	{
-		a = i / 100;
-		b = (i / 10) % 10;
-		c = i % 10;
-		if ((c - b) == (b - a))
-			count++;
-	}
-	return (count);
-}
-
 int main(void)
 {
-	int n;
-	
-	scanf("%d", &n);
-	printf("%d", hansoo(n));
+	long long n, m;
+	long long ret;
+
+	scanf("%lld %lld", &n, &m);
+	ret = n - m;
+	if (ret < 0)
+		ret *= -1;
+	printf("%lld", ret);
+
+	return 0;
 }

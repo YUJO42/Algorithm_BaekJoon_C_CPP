@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1065.c                                             :+:      :+:    :+:   */
+/*   9325.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/07 20:12:23 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/07 22:10:08 by yujo             ###   ########.fr       */
+/*   Created: 2020/03/07 22:42:11 by yujo              #+#    #+#             */
+/*   Updated: 2020/03/07 22:47:43 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	hansoo(int n)
-{
-	int count = 0;
-	int a, b, c;
-
-	if (n < 100)
-		return (n);
-	else
-		count = 99;
-	for (int i = 100; i <= n; i++)
-	{
-		a = i / 100;
-		b = (i / 10) % 10;
-		c = i % 10;
-		if ((c - b) == (b - a))
-			count++;
-	}
-	return (count);
-}
-
 int main(void)
 {
+	int t;
+	int s;
 	int n;
-	
-	scanf("%d", &n);
-	printf("%d", hansoo(n));
+	int q, p;
+	int ret;
+
+	scanf("%d", &t);
+	for (int i = 0; i < t; i++)
+	{
+		scanf("%d", &s);
+		ret = s;
+		scanf("%d", &n);
+		for (int j = 0; j < n; j++)
+		{
+			scanf("%d %d", &q, &p);
+			ret += (q * p);
+		}
+		printf("%d\n", ret);
+	}
+
+
+	return 0;
 }
