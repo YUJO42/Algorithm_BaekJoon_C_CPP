@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1316.c                                             :+:      :+:    :+:   */
+/*   2292.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/11 10:01:11 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/11 22:50:20 by yujo             ###   ########.fr       */
+/*   Created: 2020/03/11 23:03:38 by yujo              #+#    #+#             */
+/*   Updated: 2020/03/11 23:16:41 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,21 @@
 int main(void)
 {
 	int n;
+	int ret = 0;
 
-	//freopen("input.txt", "r", stdin);
 	scanf("%d", &n);
-	int count = 0;
 
-	for (int i = 0; i < n; i++)
+	if (n == 1)
 	{
-		int check[26] = {0, };
-		char str[101] = {0, };
-			
-		scanf("%s", str);
-
-		for (int j = 0; str[j];)
-		{
-		check[str[j] - 'a'] += 1;
-		char chk = str[j];
-		if (chk == str[j + 1])
-			while (chk == str[j])
-				j++;
-		else
-			j++;
-		}
-		count += 1;
-		for (int k = 0; k < 26; k++)
-		{
-			if (check[k] > 1)
-			{
-				count -= 1;
-				break;
-			}
-		}
+		printf("0");
+		return 0;
 	}
+	
+	for (int i = 2; i <= n; ret++)
+		i += 6 * ret;
 
-	printf("%d", count);
+	printf("%d", ret);
+
 
 	return 0;
 }
-
