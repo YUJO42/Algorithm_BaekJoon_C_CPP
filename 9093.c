@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 21:55:31 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/13 00:45:23 by yujo             ###   ########.fr       */
+/*   Updated: 2020/03/13 14:00:26 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int main(void)
 	
 	for (int i = 0; i < n; i++)
 	{
+		getchar();
 		char str[1005] = {0, };
-
-		gets(str);
+		scanf("%[^\n]s", str);
 		printf("%s\n", str);
 	}
 
