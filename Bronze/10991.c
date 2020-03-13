@@ -1,47 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   9093.c                                             :+:      :+:    :+:   */
+/*   10991.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/12 21:55:31 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/13 00:45:23 by yujo             ###   ########.fr       */
+/*   Created: 2020/03/13 11:25:46 by yujo              #+#    #+#             */
+/*   Updated: 2020/03/13 11:39:15 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
-
-void swap(char *str)
-{
-	int l = 0;
-	int r = strlen(str) - 1;
-	char temp;
-
-	for (int i = 0; i < strlen(str) / 2; i++)
-	{
-		temp = str[l];
-		str[l] = str[r];
-		str[r] = temp;
-		l++;
-		r--;
-	}
-}
 
 int main(void)
 {
 	int n;
 
 	scanf("%d", &n);
-	
+
 	for (int i = 0; i < n; i++)
 	{
-		char str[1005] = {0, };
-
-		gets(str);
-		printf("%s\n", str);
+		for (int j = 0; j < n - i - 1; j++)
+			printf(" ");
+		for (int k = 0; k < 2 * (i + 1) - 1; k++)
+		{
+			if (k % 2 == 0)
+				printf("*");
+			else
+				printf(" ");
+		}
+		printf("\n");
 	}
-
 	return 0;
 }

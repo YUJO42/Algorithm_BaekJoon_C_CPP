@@ -1,47 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   9093.c                                             :+:      :+:    :+:   */
+/*   1292.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/12 21:55:31 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/13 00:45:23 by yujo             ###   ########.fr       */
+/*   Created: 2020/03/13 11:42:45 by yujo              #+#    #+#             */
+/*   Updated: 2020/03/13 11:52:28 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
-
-void swap(char *str)
-{
-	int l = 0;
-	int r = strlen(str) - 1;
-	char temp;
-
-	for (int i = 0; i < strlen(str) / 2; i++)
-	{
-		temp = str[l];
-		str[l] = str[r];
-		str[r] = temp;
-		l++;
-		r--;
-	}
-}
 
 int main(void)
 {
-	int n;
-
-	scanf("%d", &n);
-	
-	for (int i = 0; i < n; i++)
+	int arr[10005] = {0, };
+	int put = 0;
+	int num = 1;
+	for (int i = 0; i < 1000; i++)
 	{
-		char str[1005] = {0, };
-
-		gets(str);
-		printf("%s\n", str);
+		for (int j = 0; j <= i; j++)
+		{
+			arr[put] = num;
+			put++;
+			if (put > 999)
+				break;
+		}
+		num++;
 	}
+
+	int a, b;
+	int sum = 0;
+	scanf("%d %d", &a, &b);
+
+	for (int i = a - 1; i < b; i++)
+		sum += arr[i];
+
+	printf("%d", sum);
 
 	return 0;
 }

@@ -1,47 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   9093.c                                             :+:      :+:    :+:   */
+/*   2953.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/12 21:55:31 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/13 00:45:23 by yujo             ###   ########.fr       */
+/*   Created: 2020/03/13 11:18:33 by yujo              #+#    #+#             */
+/*   Updated: 2020/03/13 11:20:56 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
-
-void swap(char *str)
-{
-	int l = 0;
-	int r = strlen(str) - 1;
-	char temp;
-
-	for (int i = 0; i < strlen(str) / 2; i++)
-	{
-		temp = str[l];
-		str[l] = str[r];
-		str[r] = temp;
-		l++;
-		r--;
-	}
-}
 
 int main(void)
 {
-	int n;
+	int a, b, c, d;
+	int max = -1;
+	int winner = 0;
 
-	scanf("%d", &n);
-	
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < 5; i++)
 	{
-		char str[1005] = {0, };
-
-		gets(str);
-		printf("%s\n", str);
+		scanf("%d %d %d %d", &a, &b, &c, &d);
+		if (max < a + b + c + d)
+		{
+			max = a + b + c + d;
+			winner = i + 1;
+		}
 	}
+
+	printf("%d %d", winner, max);
 
 	return 0;
 }

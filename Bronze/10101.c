@@ -1,47 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   9093.c                                             :+:      :+:    :+:   */
+/*   10101.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/12 21:55:31 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/13 00:45:23 by yujo             ###   ########.fr       */
+/*   Created: 2020/03/13 11:54:30 by yujo              #+#    #+#             */
+/*   Updated: 2020/03/13 12:28:00 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
-
-void swap(char *str)
-{
-	int l = 0;
-	int r = strlen(str) - 1;
-	char temp;
-
-	for (int i = 0; i < strlen(str) / 2; i++)
-	{
-		temp = str[l];
-		str[l] = str[r];
-		str[r] = temp;
-		l++;
-		r--;
-	}
-}
 
 int main(void)
 {
-	int n;
+	int a, b, c;
+	int sum = 0;
 
-	scanf("%d", &n);
-	
-	for (int i = 0; i < n; i++)
-	{
-		char str[1005] = {0, };
+	scanf("%d", &a);
+	scanf("%d", &b);
+	scanf("%d", &c);
 
-		gets(str);
-		printf("%s\n", str);
-	}
+	sum = a + b + c;
+
+	if (sum != 180)
+		printf("Error");
+	else if (a == b && b == c && a == c)
+		printf("Equilateral");
+	else if (a != b && b != c && a != c)
+		printf("Scalene");
+	else if ((a == b && b != c) || (b == c && c != a) || (a == c || c != b)
+		printf("Isosceles");
 
 	return 0;
 }
