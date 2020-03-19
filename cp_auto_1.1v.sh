@@ -6,7 +6,7 @@
 #    By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/12 19:41:51 by yujo              #+#    #+#              #
-#    Updated: 2020/03/14 20:23:56 by yujo             ###   ########.fr        #
+#    Updated: 2020/03/19 18:17:22 by yujo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ then
 fi
 
 # 파일명을 alphabet 단위로 입력 받아 해당 폴더로 cp를 한다.
-cp $1 ../my_study/BOJ/$g
+cp $1 ../../42cursus/my_study/BOJ/$g
 # oo파일이 oo폴더로 이동 된 것을 출력해준다.
 echo "$1 copied my_study/BOJ $g folder"
 
