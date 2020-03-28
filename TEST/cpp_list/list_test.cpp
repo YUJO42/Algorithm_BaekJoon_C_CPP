@@ -6,11 +6,13 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 11:23:40 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/26 11:28:48 by yujo             ###   ########.fr       */
+/*   Updated: 2020/03/28 14:29:37 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <bits/stdc++.h>
+
+using namespace std;
 
 /*
 struct NODE
@@ -19,6 +21,17 @@ struct NODE
 	int data;
 };
 */
+
+void traverse()
+{
+	int cur = nxt[0];
+	while (cur != -1)
+	{
+		cout << dat[cur] << ' ';
+		cur = nxt[cur];
+	}
+	cout << "\n\n";
+}
 
 int main(void)
 {
