@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 11:28:07 by yujo              #+#    #+#             */
-/*   Updated: 2020/05/19 13:14:42 by yujo             ###   ########.fr       */
+/*   Updated: 2020/05/19 13:47:39 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,18 @@ void caseNum(int n)
 		case 90 :
 			printf("Ninety ");
 			break;
+		case 100 :
+			printf("Hundred ");
+			break;
+		case 1000 :
+			printf("Thousand "):
+			break;
+		case 1000000 :
+			printf("Million ");
+			break;
+		case 1000000000 :
+			printf("Billon ");
+			break;
 		default :
 			printf("Error");
 			break;
@@ -157,6 +169,13 @@ void caseNum(int n)
 
 void recursive(int n)
 {
+	if (n > 1000000000)
+	{
+		caseNum(n / 1000000000);
+		caseNum(1000000000);
+		recursive(n % 1000000000);
+	}
+	else if (n > 10
 }
 
 char *numberToWords(int num) 
