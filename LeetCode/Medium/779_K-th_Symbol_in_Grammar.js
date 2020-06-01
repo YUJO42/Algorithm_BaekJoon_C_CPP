@@ -23,11 +23,11 @@
 // ];
 
 // @@@@@@@@@@ 성공 1
-// var kthGrammar = function (N, K) {
-//   if (N == 1) return 0;
-//   if (K % 2 == 0) return kthGrammar(N - 1, K / 2) == 0 ? 1 : 0;
-//   else return kthGrammar(N - 1, (K + 1) / 2) == 0 ? 0 : 1;
-// };
+var kthGrammar = function (N, K) {
+  if (N == 1) return 0;
+  if (K % 2 == 0) return kthGrammar(N - 1, K / 2) == 0 ? 1 : 0;
+  else return kthGrammar(N - 1, (K + 1) / 2) == 0 ? 0 : 1;
+};
 
 // @@@@@@@@@@@ 성공 2
 // var kthGrammar = function (N, K) {
@@ -36,15 +36,15 @@
 // };
 
 // @@@@@@@@@@@@ 성공 3
-var kthGrammar = function (N, K) {
-  var cnt = 0;
-  --K;
-  while (K) {
-    cnt += K & 1;
-    K >>= 1;
-  }
-  return cnt % 2;
-};
+// var kthGrammar = function (N, K) {
+//   var cnt = 0;
+//   --K;
+//   while (K) {
+//     cnt += K & 1;
+//     K >>= 1;
+//   }
+//   return cnt % 2;
+// };
 
 // @@@@@@@@@@@@@ Fail
 // if (N == 1) {
