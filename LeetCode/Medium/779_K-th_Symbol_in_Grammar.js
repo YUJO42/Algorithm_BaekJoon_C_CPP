@@ -65,3 +65,4 @@ console.log(kthGrammar(2, 2)); // 1
 console.log(kthGrammar(4, 5)); // 1
 console.log(kthGrammar(5, 6)); // 0
 console.log(kthGrammar(10, 6)); // 0
+console.log(kthGrammar(30, 434991989)); // 0

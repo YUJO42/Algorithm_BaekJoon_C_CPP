@@ -16,20 +16,20 @@
 // G, H == 2 top-right
 
 //@@@@@@@@@@@@ Success 1.
-var computeArea = function (A, B, C, D, E, F, G, H) {
-  //
-  var total = (C - A) * (D - B) + (G - E) * (H - F);
+// var computeArea = function (A, B, C, D, E, F, G, H) {
+//   //
+//   var total = (C - A) * (D - B) + (G - E) * (H - F);
 
-  if (A > G || C < E || D < F || B > H) {
-    return total;
-  }
-  var top = Math.min(C, G);
-  var bottom = Math.max(A, E);
-  var left = Math.max(B, F);
-  var right = Math.min(D, H);
+//   if (A > G || C < E || D < F || B > H) {
+//     return total;
+//   }
+//   var top = Math.min(C, G);
+//   var bottom = Math.max(A, E);
+//   var left = Math.max(B, F);
+//   var right = Math.min(D, H);
 
-  return total - (right - left) * (top - bottom);
-};
+//   return total - (right - left) * (top - bottom);
+// };
 
 var computeArea = function (A, B, C, D, E, F, G, H) {
   //
