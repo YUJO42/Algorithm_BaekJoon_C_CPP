@@ -5,10 +5,10 @@
 // Try 1
 //
 function solution(numbers) {
-  let answer = [];
-  numbers.sort((x, y) => x + y);
-  console.log(numbers);
-  return answer;
+  numbers.sort(
+    (a, b) => b.toString() + a.toString() - (a.toString() + b.toString())
+  );
+  return numbers.join("") == 0 ? "0" : numbers.join("");
 }
 
 // test code
