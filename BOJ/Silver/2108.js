@@ -1,10 +1,3 @@
-/*
-산술평균 : N개의 수들의 합을 N으로 나눈 값
-중앙값 : N개의 수들을 증가하는 순서로 나열했을 경우 그 중앙에 위치하는 값
-최빈값 : N개의 수들 중 가장 많이 나타나는 값
-범위 : N개의 수들 중 최댓값과 최솟값의 차이
-*/
-
 // BOJ JS input
 
 const fs = require("fs");
@@ -21,7 +14,6 @@ const input = fs
 // const input = [1, 4000];
 // const input = [5, -1, -2, -3, -1, -2];
 
-// const N =
 input.shift();
 const arr = input.sort((a, b) => a - b);
 
@@ -31,7 +23,6 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 const checkValueMap = new Map();
-let checkArr = [];
 for (let i = 0; i < arr.length; i++) {
   if (checkValueMap.has(arr[i])) {
     checkValueMap.set(arr[i], checkValueMap.get(arr[i]) + 100);
@@ -55,21 +46,21 @@ for (let value of checkValueMap.keys()) {
   }
 }
 
-// console.log(`Map Size : ${checkValueMap.size} arr : ${arr}`);
-// console.log(checkValueMap);
+// 산술평균 : N개의 수들의 합을 N으로 나눈 값
+const average = Math.round(sum / arr.length);
 
-// ParseInt, Math.floor 차이
-// const average = Math.floor(sum / arr.length);
-const average = Math.round(
-  input.reduce((acc, num) => (acc += num), 0) / arr.length
-);
+// 중앙값 : N개의 수들을 증가하는 순서로 나열했을 경우 그 중앙에 위치하는 값
 const middle = arr[Math.floor(arr.length / 2)];
+
+// 최빈값 : N개의 수들 중 가장 많이 나타나는 값
 let mostValue = 0;
 if (checkValueArr.length > 1) {
   mostValue = checkValueArr[1];
 } else {
   mostValue = checkValueArr[0];
 }
+
+// 범위 : N개의 수들 중 최댓값과 최솟값의 차이
 const range = arr[arr.length - 1] - arr[0];
 
 console.log(average);
