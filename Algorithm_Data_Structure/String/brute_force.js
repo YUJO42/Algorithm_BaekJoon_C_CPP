@@ -23,4 +23,4 @@ function searchWord(text, word) {
 // test code
 
 console.log(searchWord("asdfasdfasfasdfasdfasdfadsfaeeee", "aeeee"));
-console.log(searchWord("asdfasdfasfasdfasdfasdfadsfaeeee", "aeeeeee"));
+console.log(searchWord("asdfasdfasfasdfasdfasdfadsfaeeee", "aeeeee"));

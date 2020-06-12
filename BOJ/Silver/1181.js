@@ -30,10 +30,6 @@ for (let i = 0; i < input.length; i++) {
   map.set(input[i], input[i].length);
 }
 
-function powerSort(x, y) {
-  return x - y;
-}
-
 const sortedMap = new Map(
   [...map.entries()].sort((x, y) => {
     if (x[1] === y[1]) {

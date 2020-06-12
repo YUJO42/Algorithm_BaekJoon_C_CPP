@@ -1,3 +1,37 @@
+// BOJ input
+
+const fs = require("fs");
+const input = [...fs.readFileSync("dev/stdin")];
+const setInput = input.toString().split(" ");
+
+const word = setInput.pop();
+const text = setInput.join(" ");
+KMP(word, text);
+
+// test code 1
+
+// const text = "ABC ABCDAB  ABCDABCDABDE";
+// const word = "ABCDABD";
+// KMP(text, word);
+
+// test code 2
+
+// const text = "ABC ABCDAB ABCDABCDABDE";
+// const word = "ABC";
+// KMP(text, word);
+
+// test code 3
+// const text = "";
+// const word = "ABC";
+// KMP(text, word);
+
+/*
+ * @param 문자열(공백 포함) {string} ABC ABCDAB ABCDABCDABDE
+ * @param 찾는 단어 {string} ABCDABD
+ * @return 등장 횟수 {number}
+ * @return 등장 위치 {numbers}
+ */
+
 function buildPatternTable(word) {
   const patternTable = [0];
   let prefixIndex = 0;
@@ -18,7 +52,10 @@ function buildPatternTable(word) {
 
   return patternTable;
 }
+
 function KMP(text, word) {
+  let count = 0;
+  let result = [];
   if (word.length === 0) {
     return 0;
   }
@@ -30,9 +67,9 @@ function KMP(text, word) {
 
   while (textIndex < text.length) {
     if (text[textIndex] === word[wordIndex]) {
-      // We've found a match.
       if (wordIndex === word.length - 1) {
-        return textIndex - word.length + 1;
+        count++;
+        result.push(textIndex - word.length + 1);
       }
       wordIndex++;
       textIndex++;
@@ -43,11 +80,6 @@ function KMP(text, word) {
       textIndex++;
     }
   }
-
-  return -1;
+  console.log(count);
+  console.log(...result);
 }
-
-// test code
-
-console.log(KMP("asdfasdfasfasdfasdfasdfadsfaeeee", "aeeee"));
-console.log(KMP("asdfasdfasfasdfasdfasdfadsfaeeee", "aeeeeee"));

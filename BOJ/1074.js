@@ -1,50 +1,58 @@
 // BOJ Input
 
-let fs = require("fs");
-let input = fs.readFileSync("dev/stdin").toString().trim().split(" ");
-
-let N = input[0];
-let r = input[1];
-let c = input[2];
-
-// solution
-
-// N = 2^N = 사각형 한 변의 넓이
-// r = 세로
-// c = 가로
-
-let result = 0;
-
-function recursive(squareSize, vertical, horizontal) {
-  if (squareSize === 0) {
-    return result;
-  }
-
-  let half = squareSize / 2;
-  let section = 0;
-  if (vertical >= half && horizontal >= half) {
-    section = 3;
-  } else if (vertical >= half && horizontal < half) {
-    section = 2;
-  } else if (vertical < half && horizontal >= half) {
-    section = 1;
-  }
-  result += (sum / 4) * section;
-  recursive(power - 1, vertical % half, y % half);
-}
-
-function solution(N, r, c) {
-  squareSize = Math.pow(2, N);
-  squareSize *= squareSize;
-
-  if (squareSize == 1) {
-    return console.log(result);
-  }
-
-  console.log(recursive(squareSize - 1, r, c));
-}
+// let fs = require("fs");
+// let input = fs.readFileSync("dev/stdin").toString().trim().split(" ");
 
 // test code
 
-solution(2, 3, 1); // 11
-solution(3, 7, 7); // 63
+// const input = [2, 3, 1]; // outp ut : 11
+// const input = [3, 7, 7]; // output : 63
+
+// // solution 1
+// let n = input[0];
+// let R = input[1];
+// let C = input[2];
+
+// let result = 0;
+// const dy = [0, 0, 1, 1];
+// const dx = [0, 1, 0, 1];
+
+// go(1 << n, 0, 0);
+
+// function go(n, r, c) {
+//   if (n === 2) {
+//     for (let i = 0; i < 4; i++) {
+//       let ny = r + dy[i];
+//       let nx = c + dx[i];
+//       if (ny === R && nx === C) {
+//         console.log(result);
+//         return;
+//       }
+//       result++;
+//     }
+//     return;
+//   }
+//   go(n / 2, r, c);
+//   go(n / 2, r, c + n / 2);
+//   go(n / 2, r + n / 2, c);
+//   go(n / 2, r + n / 2, c + n / 2);
+//   return;
+// }
+
+// solution 2
+
+let side = inout[0];
+let y = input[1]; // 세로
+let x = inputp[2]; // 가로
+
+function solution(side, x, y) {
+  side /= 2;
+  if (side === 1) {
+    return 1;
+  }
+  if (side === 2) {
+    return; // 2 * 2인 사각형에서의 인덱스
+  }
+}
+
+console.log(solution(Math.pow(2, side), x, y));
