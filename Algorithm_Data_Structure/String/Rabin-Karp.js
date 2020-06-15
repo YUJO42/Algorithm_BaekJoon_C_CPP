@@ -1,27 +1,27 @@
-// // simply
+// simply
 
-// function rabinKarp(text, word) {
-//   const textHash = [];
-//   const wordHash = [];
+function rabinKarp(text, word) {
+  const textHash = [];
+  const wordHash = [];
 
-//   for (let i = 0; i < text.length; i++) {
-//     if (i === 0) {
-//       for (let j = 0; j < word.length; j++) {
-//         textHash.push(text[j]);
-//         wordHash.push(word[j]);
-//       }
-//     } else {
-//       textHash.shift();
-//       textHash.push(text[i + word.length - 1]);
-//     }
+  for (let i = 0; i < text.length; i++) {
+    if (i === 0) {
+      for (let j = 0; j < word.length; j++) {
+        textHash.push(text[j]);
+        wordHash.push(word[j]);
+      }
+    } else {
+      textHash.shift();
+      textHash.push(text[i + word.length - 1]);
+    }
 
-//     if (textHash.join("") === wordHash.join("")) {
-//       return i;
-//     }
-//   }
+    if (textHash.join("") === wordHash.join("")) {
+      return i;
+    }
+  }
 
-//   return -1;
-// }
+  return -1;
+}
 
 // 원래 버전
 
