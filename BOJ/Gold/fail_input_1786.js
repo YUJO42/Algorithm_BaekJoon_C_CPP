@@ -1,12 +1,11 @@
 // BOJ input
 
-const fs = require("fs");
-const input = [...fs.readFileSync("dev/stdin")];
-const setInput = input.toString().split(" ");
+let fs = require("fs");
+let input = fs.readFileSync("dev/stdin").toString().split("\n");
 
-const word = setInput.pop();
-const text = setInput.join(" ");
-KMP(word, text);
+const text = input[0].toString();
+const word = input[1].toString();
+KMP(text, word);
 
 // test code 1
 

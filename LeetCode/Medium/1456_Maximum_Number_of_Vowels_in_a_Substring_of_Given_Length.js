@@ -24,8 +24,7 @@
 //       }
 //     }
 //   }
-// return max;
-
+//   return max;
 // };
 
 // solution 2 : Brute-Force (add conditon)
@@ -59,12 +58,11 @@
 // };
 
 // solution 3 :
-// result     :
+// result     : success
 
 var maxVowels = function (s, k) {
   const arr = ["a", "e", "i", "o", "u"];
   let max = 0;
-  let count = 0;
   for (let i = 0, count = 0; i < s.length; i++) {
     if (arr.indexOf(s[i]) !== -1) {
       count++;
