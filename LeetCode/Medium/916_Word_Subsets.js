@@ -5,26 +5,25 @@
  */
 
 var wordSubsets = function (word, key) {
-  //   const arr = Array(26).fill(0);
   const wordMap = new Map();
   const keyMap = new Map();
-  const keyMapSave = new Map();
+  const currentKeyMap = new Map();
   const answer = [];
 
   for (let i = 0; i < key.length; i++) {
-    keyMapSave.clear();
+    currentKeyMap.clear();
 
     for (let j = 0; j < key[i].length; j++) {
-      if (keyMap.has(key[i][j]) && keyMapSave.has(key[i][j])) {
-        keyMapSave.set(key[i][j], keyMapSave.get(key[i][j]) + 1);
-        if (keyMap.get(key[i][j]) < keyMapSave.get(key[i][j])) {
-          keyMap.set(key[i][j], keyMapSave.get(key[i][j]));
+      if (keyMap.has(key[i][j]) && currentKeyMap.has(key[i][j])) {
+        currentKeyMap.set(key[i][j], currentKeyMap.get(key[i][j]) + 1);
+        if (keyMap.get(key[i][j]) < currentKeyMap.get(key[i][j])) {
+          keyMap.set(key[i][j], currentKeyMap.get(key[i][j]));
         }
       } else if (keyMap.has(key[i][j])) {
-        keyMapSave.set(key[i][j], 1);
+        currentKeyMap.set(key[i][j], 1);
       } else {
         keyMap.set(key[i][j], 1);
-        keyMapSave.set(key[i][j], 1);
+        currentKeyMap.set(key[i][j], 1);
       }
     }
   }
