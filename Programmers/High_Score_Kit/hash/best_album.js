@@ -3,44 +3,67 @@
 // 같은 장르가 3번 이상 나오면 조금 나온거 하나 버리기
 
 function solution(genres, plays) {
-  const arr = [];
-  const playMap = new Map();
+  var answer = [];
+  const genreMap = new Map();
+  let playsArr = [];
 
   for (let i = 0; i < genres.length; i++) {
-    arr[i] = [genres[i], plays[i], i];
-
-    // playMap에 장르별 총 재생횟수를 담음
-    if (playMap.has(genres[i])) {
-      playMap.set(genres[i], playMap.get(genres[i]) + plays[i]);
+    // 각 장르별 플레이수를 담은 맵을 만든다
+    if (genreMap.has(genres[i])) {
+      genreMap.set(genres[i], genreMap.get(genres[i]) + plays[i]);
     } else {
-      playMap.set(genres[i], plays[i]);
+      genreMap.set(genres[i], plays[i]);
     }
+    // 배열에 장르, 플레이수, 고유번호(index)를 담는다.
+    playsArr[i] = [genres[i], plays[i], i];
   }
 
-  const sortedPlayMap = [...playMap].sort((x, y) => y[1] - x[1]);
-  const sortedArr = arr.sort((x, y) => {
-    if (playMap.get(y[0]) === playMap.get(x[0])) {
-      return y[1] > x[1] ? 1 : -1;
-    } else {
-      return playMap.get(y[0]) > playMap.get(x[0]) ? 1 : -1;
+  // 가장 많이 재생된 순서대로 genreMap을 정렬
+  const sortedGenreMap = [...genreMap].sort((x, y) => y[1] - x[1]);
+
+  const answerMap = new Map();
+  for (let i = 0; i < sortedGenreMap.length; i++) {
+    answerMap.clear();
+    for (let j = 0; j < playsArr.length; j++) {
+      if (sortedGenreMap[i][0] === playsArr[j][0]) {
+        answerMap.set(playsArr[j][2], playsArr[j][1]);
+      }
     }
-  });
+    let sortedAnswerMap = [...answerMap].sort((x, y) => {
+      if (y[1] === x[1]) {
+        return x[0] - y[0];
+      } else {
+        return y[1] - x[1];
+      }
+    });
 
-  const answer = [];
-
-  console.log(sortedPlayMap);
-  console.log(sortedArr);
+    if (sortedAnswerMap.length < 2) {
+      answer.push(sortedAnswerMap[0][0]);
+    } else {
+      answer.push(sortedAnswerMap[0][0]);
+      answer.push(sortedAnswerMap[1][0]);
+    }
+  }
 
   return answer;
 }
 
 // test code
 
-// const genres1 = ["classic", "pop", "classic", "classic", "pop"];
-// const plays1 = [500, 600, 150, 800, 2500];
+const genres1 = [
+  "classic",
+  "pop",
+  "pop",
+  "pop",
+  "hiphop",
+  "classic",
+  "classic",
+  "pop",
+];
+const plays1 = [500, 600, 600, 1000, 1500, 150, 800, 2500];
 
 const genres2 = ["classic", "pop", "classic", "hiphop", "pop"];
 const plays2 = [500, 600, 150, 800, 2500];
 
-// console.log(solution(genres1, plays1));
+console.log(solution(genres1, plays1));
 console.log(solution(genres2, plays2));

@@ -2,26 +2,38 @@
 // lost = 잃어버린 학생
 // reserve = 여분 가져온 학생
 function solution(n, lost, reserve) {
-  var answer = n - lost.length;
+  let answer = n - lost.length;
 
-  for (let i = 0; i < reserve.length; i++) {
+  lost.sort();
+  reserve.sort();
+
+  for (let i = 0; i < lost.length; i++) {
+    if (reserve.indexOf(lost[i]) !== -1) {
+      lost.splice(lost.indexOf(lost[i]), 1);
+      reserve.splice(reserve.indexOf(lost[i]), 1);
+      answer++;
+    }
+  }
+
+  // console.log(lost);
+  // console.log(reserve);
+
+  for (let i = 0; i < lost.length; i++) {
     if (answer === n) {
       break;
     }
-
-    if (
-      lost.indexOf(reserve[i] + 1) >= 0 ||
-      lost.indexOf(reserve[i] - 1) >= 0 ||
-      lost.indexOf(reserve[i]) >= 0
-    ) {
-      if (lost[ssssss]) answer++;
+    for (let j = 0; j < reserve.length; j++) {
+      if (lost[i] + 1 === reserve[j] || lost[i] - 1 === reserve[j]) {
+        reserve.splice(reserve.indexOf(reserve[j]), 1);
+        answer++;
+      }
     }
   }
 
   return answer;
 }
 
-// test code
+// test codeW
 console.log(solution(3, [3], [1])); // output : 2
 console.log(solution(5, [2, 4], [3])); // output : 4
 console.log(solution(5, [4, 5], [3, 4])); // output : 4
