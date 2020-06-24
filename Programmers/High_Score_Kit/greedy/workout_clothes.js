@@ -8,23 +8,36 @@ function solution(n, lost, reserve) {
   reserve.sort();
 
   for (let i = 0; i < lost.length; i++) {
-    if (reserve.indexOf(lost[i]) !== -1) {
-      lost.splice(lost.indexOf(lost[i]), 1);
-      reserve.splice(reserve.indexOf(lost[i]), 1);
-      answer++;
-    }
-  }
-
-  // console.log(lost);
-  // console.log(reserve);
-
-  for (let i = 0; i < lost.length; i++) {
-    if (answer === n) {
+    if (answer === n || lost.length === 0) {
       break;
     }
     for (let j = 0; j < reserve.length; j++) {
-      if (lost[i] + 1 === reserve[j] || lost[i] - 1 === reserve[j]) {
-        reserve.splice(reserve.indexOf(reserve[j]), 1);
+      if (lost[i] === reserve[j]) {
+        // lost.splice(lost.indexOf(lost[i]), 1);
+        // reserve.splice(reserve.indexOf(reserve[j]), 1);
+        lost[i] = -1;
+        reserve[j] = -10;
+        answer++;
+      }
+    }
+
+    // console.log(lost);
+    // console.log(reserve);
+  }
+
+  for (let i = 0; i < lost.length; i++) {
+    if (answer === n || lost.length === 0) {
+      break;
+    }
+    for (let j = 0; j < reserve.length; j++) {
+      if (lost[i] + 1 === reserve[j]) {
+        lost[i] = -1;
+        reserve[j] = -10;
+        answer++;
+      }
+      if (lost[i] - 1 === reserve[j]) {
+        lost[i] = -1;
+        reserve[j] = -10;
         answer++;
       }
     }
@@ -32,7 +45,6 @@ function solution(n, lost, reserve) {
 
   return answer;
 }
-
 // test codeW
 console.log(solution(3, [3], [1])); // output : 2
 console.log(solution(5, [2, 4], [3])); // output : 4
