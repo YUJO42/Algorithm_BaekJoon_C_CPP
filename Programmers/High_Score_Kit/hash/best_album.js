@@ -65,5 +65,5 @@ const plays1 = [500, 600, 600, 1000, 1500, 150, 800, 2500];
 const genres2 = ["classic", "pop", "classic", "hiphop", "pop"];
 const plays2 = [500, 600, 150, 800, 2500];
 
-console.log(solution(genres1, plays1));
-console.log(solution(genres2, plays2));
+console.log(solution(genres1, plays1)); // output : [ 7, 3, 4, 6, 0 ]
+console.log(solution(genres2, plays2)); // output : [ 4, 1, 3, 0, 2 ]

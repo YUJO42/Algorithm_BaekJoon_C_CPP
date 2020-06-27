@@ -1,9 +1,9 @@
 function solution(numbers) {
   var answer = 0;
 
-  const input = numbers.split("");
-  for (let i = 0; i < input.length; i++) {}
-  return answer;
+  const numArr = numbers.split("");
+
+  numArr.reduce();
 }
 
 // test code
