@@ -16,9 +16,10 @@
 // }
 
 function solution(number, k) {
-  for (let i = 0; i < k; i++) {
-    //
-  }
+  let numArr = number.split("");
+  numArr.sort((x, y) => (y + x) - (x + y));
+
+  console.log(numArr);
 }
 
 // test code
