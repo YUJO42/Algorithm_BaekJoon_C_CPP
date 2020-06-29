@@ -11,6 +11,7 @@
 //   return flag;
 // }
 
+
 function solution(arr) {
   let max = Math.max(...arr);
   console.log(arr.length);
@@ -22,6 +23,7 @@ function solution(arr) {
     }
   }
 }
+
 // test code
 
 console.log(solution([2, 6, 8, 14])); // 168
