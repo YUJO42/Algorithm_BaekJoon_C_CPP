@@ -16,10 +16,15 @@
 // }
 
 function solution(number, k) {
-  let numArr = number.split("");
-  numArr.sort((x, y) => (y + x) - (x + y));
+  let length = number.length - k;
 
-  console.log(numArr);
+  console.log(length);
+
+  const answer = []
+
+  while (answer.length === length) {
+    if (answer.length === )
+  } 
 }
 
 // test code
